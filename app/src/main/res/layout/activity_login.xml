@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/circle"
-                android:src="@mipmap/blood_bank_icon_round" />
+                android:src="@mipmap/ic_launcher_round" />
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"

@@ -210,10 +210,10 @@ public class ProfileActivity extends AppCompatActivity {
 
                                                     Toast.makeText(getApplicationContext(), "Welcome, your account has been created!", Toast.LENGTH_LONG)
                                                             .show();
-                                                    Intent intent = new Intent(ProfileActivity.this, Dashboard.class);
-                                                    startActivity(intent);
+//                                                    Intent intent = new Intent(ProfileActivity.this, Dashboard.class);
+//                                                    startActivity(intent);
 
-                                                    finish();
+//                                                    finish();
                                                 }
                                                 pd.dismiss();
 
