@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.SearchDonorFragment"
-    android:background="@color/primary"
+    android:background="@color/primary_color_white"
     android:orientation="vertical">
     <LinearLayout
         android:padding="10dp"
@@ -60,6 +60,7 @@
             android:backgroundTint="@color/primary_dark"
             android:background="@drawable/signin_btn"
             android:id="@+id/btnSearch"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
