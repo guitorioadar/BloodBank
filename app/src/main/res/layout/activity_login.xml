@@ -29,13 +29,15 @@
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
-                    android:layout_weight="1"
-                    android:src="@drawable/facebook_circle"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/facebook_circle" />
 
                 <ImageView
                     android:layout_width="30dp"

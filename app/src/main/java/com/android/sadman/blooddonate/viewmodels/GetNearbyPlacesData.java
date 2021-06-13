@@ -12,12 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-/***
- Project Name: BloodBank
- Project Date: 10/22/18
- Created by: imshakil
- Email: mhshakil_ice_iu@yahoo.com
- ***/
+
 
 public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
 
@@ -67,7 +62,7 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
             LatLng latLng = new LatLng(lat, lng);
             markerOptions.position(latLng);
             markerOptions.title(PlaceName+" "+vicinity);
-            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+//            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 
             mMap.addMarker(markerOptions);
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));

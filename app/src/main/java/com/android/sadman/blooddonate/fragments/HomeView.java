@@ -26,17 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-
-/***
- Project Name: BloodBank
- Project Date: 10/12/18
- Created by: imshakil
- Email: mhshakil_ice_iu@yahoo.com
- ***/
 
 public class HomeView extends Fragment {
 
@@ -70,9 +62,9 @@ public class HomeView extends Fragment {
         pd.setCanceledOnTouchOutside(false);
 
         mAuth = FirebaseAuth.getInstance();
-        getActivity().setTitle("Blood Point");
+        getActivity().setTitle("Blood Requests");
 
-        restAdapter = new BloodRequestAdapter(postLists);
+        restAdapter = new BloodRequestAdapter(getActivity(),postLists);
         RecyclerView.LayoutManager pmLayout = new LinearLayoutManager(getContext());
         recentPosts.setLayoutManager(pmLayout);
         recentPosts.setItemAnimator(new DefaultItemAnimator());
@@ -96,12 +88,14 @@ public class HomeView extends Fragment {
                     for (DataSnapshot singlepost : dataSnapshot.getChildren()) {
                         CustomUserData customUserData = singlepost.getValue(CustomUserData.class);
                         postLists.add(customUserData);
+
                         restAdapter.notifyDataSetChanged();
                     }
                     pd.dismiss();
                 }
                 else
                 {
+                    pd.dismiss();
                     Toast.makeText(getActivity(), "Database is empty now!",
                             Toast.LENGTH_LONG).show();
                 }

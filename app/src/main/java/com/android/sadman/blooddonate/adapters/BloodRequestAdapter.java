@@ -1,6 +1,11 @@
 package com.android.sadman.blooddonate.adapters;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,20 +15,23 @@ import android.widget.TextView;
 
 import com.android.sadman.blooddonate.R;
 import com.android.sadman.blooddonate.viewmodels.CustomUserData;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.List;
 
-/***
- Project Name: BloodBank
- Project Date: 10/11/18
- Created by: imshakil
- Email: mhshakil_ice_iu@yahoo.com
- ***/
 
-public class BloodRequestAdapter extends RecyclerView.Adapter<BloodRequestAdapter.PostHolder> {
+public class BloodRequestAdapter extends RecyclerView.Adapter<BloodRequestAdapter.PostHolder>{
 
 
+    private final Activity activity;
     private List<CustomUserData> postLists;
+    private String contactNumber;
+
 
     public class PostHolder extends RecyclerView.ViewHolder
     {
@@ -41,8 +49,9 @@ public class BloodRequestAdapter extends RecyclerView.Adapter<BloodRequestAdapte
         }
     }
 
-    public BloodRequestAdapter(List<CustomUserData> postLists)
+    public BloodRequestAdapter(Activity activity, List<CustomUserData> postLists)
     {
+        this.activity = activity;
         this.postLists = postLists;
     }
 
@@ -67,12 +76,40 @@ public class BloodRequestAdapter extends RecyclerView.Adapter<BloodRequestAdapte
             postHolder.itemView.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
 
-        CustomUserData customUserData = postLists.get(i);
+        final CustomUserData customUserData = postLists.get(i);
         postHolder.Name.setText("Posted by: "+customUserData.getName());
         postHolder.Address.setText("From: "+customUserData.getAddress()+", "+customUserData.getDivision());
         postHolder.bloodgroup.setText("Needs "+customUserData.getBloodGroup());
         postHolder.posted.setText("Posted on:"+customUserData.getTime()+", "+customUserData.getDate());
         postHolder.contact.setText(customUserData.getContact());
+
+        postHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Dexter.withActivity(activity)
+                        .withPermission(Manifest.permission.CALL_PHONE)
+                        .withListener(new PermissionListener() {
+                            @Override
+                            public void onPermissionGranted(PermissionGrantedResponse response) {
+                                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                                callIntent.setData(Uri.parse("tel:"+customUserData.getContact()));
+                                activity.startActivity(callIntent);
+                            }
+
+                            @Override
+                            public void onPermissionDenied(PermissionDeniedResponse response) {
+
+                            }
+
+                            @Override
+                            public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+
+                            }
+                        })
+                        .check();
+            }
+        });
 
     }
 

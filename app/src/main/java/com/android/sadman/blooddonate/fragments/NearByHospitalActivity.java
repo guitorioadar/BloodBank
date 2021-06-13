@@ -37,13 +37,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 
-/***
- Project Name: BloodBank
- Project Date: 10/22/18
- Created by: imshakil
- Email: mhshakil_ice_iu@yahoo.com
- ***/
-
 public class NearByHospitalActivity extends Fragment implements
         OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -151,7 +144,7 @@ public class NearByHospitalActivity extends Fragment implements
         fusedLocationProviderClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                ShowHospitals(location.getLatitude(), location.getLongitude());
+                 ShowHospitals(location.getLatitude(), location.getLongitude());
             }
         });
 
@@ -164,7 +157,7 @@ public class NearByHospitalActivity extends Fragment implements
         googlePlaceUrl.append("&radius=").append(PROXIMITY_RADIUS);
         googlePlaceUrl.append("&type=").append(nearbyPlace);
         googlePlaceUrl.append("&sensor=true");
-        googlePlaceUrl.append("&key=" + "AIzaSyCqzB9pwH94O2tZc5xsRjfFYIozGaFFNzo");
+        googlePlaceUrl.append("&key=" + "AIzaSyDEDRLgMg5V9F-lUoXbdeiB14k50Pl09j0");
 
         Log.d("NearbyHospitalActivity", "url = " + googlePlaceUrl.toString());
 

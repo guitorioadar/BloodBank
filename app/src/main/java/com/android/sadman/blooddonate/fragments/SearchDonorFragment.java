@@ -32,12 +32,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-/***
- Project Name: BloodBank
- Project Date: 10/14/18
- Created by: imshakil
- Email: mhshakil_ice_iu@yahoo.com
- ***/
 
 public class SearchDonorFragment extends Fragment {
 
@@ -91,7 +85,7 @@ public class SearchDonorFragment extends Fragment {
                 pd.show();
                 donorItem = new ArrayList<>();
                 donorItem.clear();
-                sdadapter = new SearchDonorAdapter(donorItem);
+                sdadapter = new SearchDonorAdapter(getActivity(), donorItem);
                 recyclerView = (RecyclerView) view.findViewById(R.id.showDonorList);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 RecyclerView.LayoutManager searchdonor = new LinearLayoutManager(getContext());

@@ -2,12 +2,6 @@ package com.android.sadman.blooddonate.viewmodels;
 
 import java.io.Serializable;
 
-/***
- Project Name: BloodBank
- Project Date: 10/11/18
- Created by: imshakil
- Email: mhshakil_ice_iu@yahoo.com
- ***/
 
 public class CustomUserData implements Serializable {
    private String Address, Division, Contact;
@@ -83,5 +77,19 @@ public class CustomUserData implements Serializable {
 
     public void setDate(String date) {
         this.Date = date;
+    }
+
+
+    @Override
+    public String toString() {
+        return "CustomUserData{" +
+                "Address='" + Address + '\'' +
+                ", Division='" + Division + '\'' +
+                ", Contact='" + Contact + '\'' +
+                ", Name='" + Name + '\'' +
+                ", BloodGroup='" + BloodGroup + '\'' +
+                ", Time='" + Time + '\'' +
+                ", Date='" + Date + '\'' +
+                '}';
     }
 }

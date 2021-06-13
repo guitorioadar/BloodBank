@@ -1,11 +1,6 @@
 package com.android.sadman.blooddonate.viewmodels;
 
-/***
- Project Name: BloodBank
- Project Date: 10/17/18
- Created by: imshakil
- Email: mhshakil_ice_iu@yahoo.com
- ***/
+
 
 public class DonorData {
 

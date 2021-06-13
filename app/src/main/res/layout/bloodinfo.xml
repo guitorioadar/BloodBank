@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/primary"
+    android:background="@color/primary_color_white"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -13,11 +13,13 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:background="@drawable/boarder"
-            android:backgroundTint="@color/primary_dark"
+            android:backgroundTint="@color/primary_color_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Why Should You Donate Blood?"
             android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
             android:paddingTop="8dp" />
         <TextView
             android:gravity="start"
@@ -26,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/info_"
+            android:justificationMode="inter_word"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -34,12 +37,14 @@
         <TextView
             android:gravity="center"
             android:layout_gravity="center"
-            android:backgroundTint="@color/primary_dark"
+            android:backgroundTint="@color/primary_color_white"
             android:background="@drawable/boarder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/eligibility_"
             android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
             android:paddingTop="8dp" />
 
         <TextView
@@ -50,6 +55,7 @@
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
             android:text="@string/male_"
             android:textSize="20sp"
             android:padding="10dp"/>
@@ -60,6 +66,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:textSize="20sp"
+            android:justificationMode="inter_word"
             android:layout_height="wrap_content"
             android:text="@string/female_"
             android:layout_marginLeft="10dp"
